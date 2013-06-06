@@ -1,0 +1,219 @@
+// Bestimmer für AM EfA -----------------------------------------------------------------
+// De gustibus et coloribus non est disputandum.
+
+// Basis-Grundlinienraster, alle anderen vertikalen Maße sind Vielfache hiervon
+@baseline:				12px;
+
+// Farben -------------------------------------------------------------------------------
+
+@1fckoeln:				#fcfcfc;
+
+@bodyBackground:		@am_weiss;
+@textColor:				@am_schwarz;
+
+// kundenspezifische Farben -------------------------------------------------------------
+
+@am_rot:				#e31519;
+@am_weiss:				#fff;
+@am_schwarz:			#3e2f25;
+@am_dunkelgrau:			#6e5e50;
+@am_grau:				#9f9185;
+@am_hellgrau:			#d0c9c0;
+
+//Konturen
+@am_kontur:				#ece9e7;
+
+//Flächenfabe
+@am_flaeche:			#f8f7f6;
+
+@am_gelb:				#ffde10;
+@am_orange:				#f49900;
+@am_dunkelrot:			#830628;
+@am_lila:				#62284b;
+@am_dunkelblau:			#004272;
+@am_blau:				#60c4e5;
+@am_dunkelgruen:		#004436;
+@am_gruen:				#bad26f;
+
+// Graustufen ---------------------------------------------------------------------------
+
+@black:					#000;
+@grayDarker:			#222;
+@grayDark:				#333;
+@gray:					#555;
+@grayLight:				#999;
+@grayLighter:			#ccc;
+@grayLightest:			#eee;
+@white:					#fff;
+
+// Links --------------------------------------------------------------------------------
+
+@linkColor:				@am_rot;
+@linkColorVisited:		@am_rot;
+//@linkColorHover:		darken(@linkColor, 20%);
+@linkColorHover:		@am_schwarz;
+@linkColorTap:			@am_schwarz;
+@linkBackgroundColor:	transparent;
+@linkDecoration:		none;
+
+// Colors -------------------------------------------------------------------------------
+
+//	.am-rot {
+//		background: @am_rot;
+//		color: @am_weiss;
+//	}
+//
+//	.am-weiss {
+//		background: @am_weiss;
+//		color: @am_schwarz;
+//	}
+//
+//	.am-schwarz {
+//		background: @am_schwarz;
+//		color: @am_weiss;
+//	}
+//
+//	.am-dunkelgrau {
+//		background: @am_dunkelgrau;
+//		color: @am_weiss;
+//	}
+//
+//	.am-grau {
+//		background: @am_grau;
+//		color: @am_weiss;
+//	}
+//
+//	.am-hellgrau {
+//		background: @am_hellgrau;
+//		color: @am_weiss;
+//	}
+//
+//	.am-lila {
+//		background: @am_lila;
+//		color: @am_weiss;
+//	}
+//
+//	.am-dunkelrot {
+//		background: @am_dunkelrot;
+//		color: @am_weiss;
+//	}
+//
+//	.am-orange {
+//		background: @am_orange;
+//		color: @am_weiss;
+//	}
+//
+//	.am-gelb {
+//		background: @am_gelb;
+//		color: @am_weiss;
+//	}
+//
+//	.am-dunkelgruen {
+//		background: @am_dunkelgruen;
+//		color: @am_weiss;
+//	}
+//
+//	.am-dunkelblau {
+//		background: @am_dunkelblau;
+//		color: @am_weiss;
+//	}
+//
+//	.am-gruen {
+//		background: @am_gruen;
+//		color: @am_weiss;
+//	}
+//
+//	.am-blau {
+//		background: @am_blau;
+//		color: @am_weiss;
+//	}
+
+// Typo allg. ---------------------------------------------------------------------------
+
+@baseFontFamily:		Arial, Helvetica, sans-serif;
+
+@sansFontFamily:		"Arial Rounded", Arial, Helvetica, sans-serif;
+@sansBoldFontFamily:	"Arial Rounded Bold", "Arial Bold", "Helvetica Bold", sans-serif;
+
+@monoFontFamily:		"Source Code Pro Light", Consolas, "Lucida Console", "Andale Mono", Menlo, "Bitstream Vera Sans Mono", "Courier New", Courier;
+@monoFontFamilyBold:	"Source Code Pro Semibold", Consolas, "Lucida Console", "Andale Mono", Menlo, "Bitstream Vera Sans Mono", "Courier New", Courier;
+
+@baseFontSize:			16px; // nicht ändern!
+@baseLineHeight:		24px;
+
+@headingsFontFamily:	inherit;
+@headingsFontWeight:	normal;
+@headingsColor:			inherit;
+
+// Kundenspezifische Typo ---------------------------------------------------------------
+
+.font(Base) {
+	font-family:		Arial, Helvetica, sans-serif;
+}
+
+// .font(SansLight) {
+// 	font-family:		"Arial Rounded Light", Arial, Helvetica, sans-serif;
+// }
+
+.font(Sans) {
+	font-family:		"Arial Rounded", Arial, Helvetica, sans-serif;
+}
+
+.font(SansBold) {
+    font-family:		"Arial Rounded Bold", Arial, Helvetica, sans-serif;
+}
+
+// .font(SansExtrabold) {
+//     font-family:		"Arial Rounded Extrabold", Arial, Helvetica, sans-serif;
+// }
+
+// .font(MonoExtralight) {
+//     font-family:		"Source Code Pro Extralight", Courier;
+// }
+
+.font(MonoLight) {
+    font-family:		"Source Code Pro Light", Courier;
+}
+
+// .font(MonoMedium) {
+//     font-family:		"Source Code Pro Medium", Courier;
+// }
+
+// .font(Mono) {
+//     font-family:		"Source Code Pro Regular", Courier;
+// }
+
+.font(MonoSemibold) {
+	font-family:		"Source Code Pro Semibold", Courier;
+}
+
+// .font(MonoBold) {
+//     font-family:		"Source Code Pro Bold", Courier;
+// }
+
+// .font(MonoBlack) {
+//     font-family:		"Source Code Pro Black", Courier;
+// }
+
+// Mixins -------------------------------------------------------------------------------
+
+	.box() {
+		border-radius: 5px;
+		border: 1px solid @am_kontur;
+		color: @am_dunkelgrau;
+		background: @am_flaeche;
+	}
+
+	.flexible() {
+		margin-top: 1.5em;
+		max-width: 100%;
+		height: auto;
+	}
+
+	.offleft() {
+		position: absolute;
+		top: 0;
+		left: -9999px;
+		height: 1px;
+		width: 1px;
+	}

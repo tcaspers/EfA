@@ -1,0 +1,84 @@
+
+@media all {
+
+// Tabellen -----------------------------------------------------------------------------
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
+		margin: 1.3571em 0 0 0;
+		border: 1px solid @am_hellgrau;
+		font-size: inherit;
+		font: 100%;
+		line-height: 1.5;
+
+		&.narrow {
+			margin: 1.4286em 0 0 0;
+
+			th,
+			td {
+				padding: 0 0.5em;
+				line-height: 1.4286em;
+			}
+		}
+
+		caption {
+			text-align: left;
+		}
+	}
+
+	th,
+	td {
+		text-align: left;
+		vertical-align: top;
+		padding: .7143em .5em;
+
+		&.nowrap {
+			white-space: nowrap;
+		}
+
+		*:first-child {
+			margin-top: 0;
+		}
+	}
+
+	thead {
+
+		th {
+			color: @am_schwarz;
+			background: @grayLightest;
+			font-weight: bold;
+			border-right: 1px solid @am_hellgrau;
+			border-bottom: 1px solid @am_hellgrau;
+		}
+	}
+
+	tbody {
+	
+		th[scope="row"] {
+			background: @grayLightest;
+		}
+
+		th {
+			font-weight: bold;
+//			text-align: left;
+			border-top: 1px solid @am_hellgrau;
+			border-right: 1px solid @am_hellgrau;
+		}
+
+		td {
+//			text-align: left;
+			border-top: 1px solid @am_hellgrau;
+			border-right: 1px solid @am_hellgrau;
+		}
+
+// highlight bei hover
+
+		tr:hover th,
+		tr:hover td {
+			background: @grayLightest;
+			color: @am_schwarz;
+		}
+	}
+}

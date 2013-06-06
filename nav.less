@@ -1,0 +1,126 @@
+
+@media screen {
+
+	nav {
+		border-top: 1px solid @am_kontur;
+		background: @am_kontur;
+// http://ie.microsoft.com/testdrive/graphics/cssgradientbackgroundmaker/
+// IE10 Preview
+		background-image: -ms-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+// Firefox
+		background-image: -moz-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+// Opera
+		background-image: -o-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+// Old Webkit (Safari/Chrome 10)
+		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, @am_weiss), color-stop(1, @am_kontur));
+// New Webkit (Chrome 11+)
+		background-image: -webkit-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+// W3C Spec, IE10 Release Preview
+		background-image: linear-gradient(to bottom, @am_weiss 0%, @am_kontur 100%);
+		margin-bottom: 1em;
+	}
+
+	.ym-hlist {
+// Einfassen der Floats im IE 
+		width: 100%;
+		overflow: hidden;
+// Bugfix: IE - collapsing horizontal margins 
+		position: relative;
+		line-height: 1em;
+
+		ul {
+			margin: 0;
+			padding-left: 20px;
+// Bugfix: IE - Doubled Float Margin Bug 
+			display: inline;
+			float: left;
+
+			li {	
+// Bugfix: IE - Doubled Float Margin Bug
+				display: inline;
+				float: left;
+				font-size: 1em;
+				line-height: 1em;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				border-left: 1px solid @am_hellgrau;
+
+				background: @am_kontur;
+				background-image: -ms-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+				background-image: -moz-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+				background-image: -o-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, @am_weiss), color-stop(1, @am_kontur));
+				background-image: -webkit-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+				background-image: linear-gradient(to bottom, @am_weiss 0%, @am_kontur 100%);
+				color: @am_dunkelgrau;
+
+				a,
+				strong {
+					background: transparent;
+					color: @am_dunkelgrau;
+					display: block;
+					font-size: 1em;
+					font-weight: bold;
+					line-height: 2em;
+					padding: .7em 10px .7em 20px;
+					text-decoration: none;
+					width: auto;
+					line-height: 1.3;
+				}
+
+				a:after {
+					content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAALCAYAAACzkJeoAAAAXklEQVR42nXOQQnAMBBE0UiIhEqIhEiohErJJQKioJIqoRIiYTqBDgvL5vBh4c1h0z36wSqA5Fs4GdjDskcoGxheu8FahAOhBs0NqqCwKfjvvIOih94IhCEIT9YMrA8fzshhAmEanwAAAABJRU5ErkJggg%3D%3D");
+					padding-left: 10px;
+// accounts for different image widths
+					padding-right: 4px;
+				}
+
+				&.active a:after,
+				strong:after {
+					content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAHCAYAAADebrddAAAAYklEQVR42mWNQRGAMAwEIwEJSKiESkACUvpBAAqQVAmVgIRwx1Ayc3nsI5e9xK7z2ICDAYq72wTz%2Fu1usDJobxBhEXFSjUtKUmgidh7gu1RQESy%2FnAtZDFkKKoocUABVc%2FIA3ErIYf2aSBMAAAAASUVORK5CYII%3D");
+					padding-left: 6px;
+				}
+
+				a:focus,
+				a:hover,
+				a:active {
+					background: @am_hellgrau;
+					background-image: -ms-linear-gradient(top, @am_weiss 0%, #f5f4f3 100%);
+					background-image: -moz-linear-gradient(top, @am_weiss 0%, #f5f4f3 100%);
+					background-image: -o-linear-gradient(top, @am_weiss 0%, #f5f4f3 100%);
+					background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, @am_weiss), color-stop(1, #f5f4f3));
+					background-image: -webkit-linear-gradient(top, @am_weiss 0%, #f5f4f3 100%);
+					background-image: linear-gradient(to bottom, @am_weiss 0%, #f5f4f3 100%);
+					color: @am_schwarz;
+					text-decoration:none;
+					outline: 0 none;
+				}
+
+				&.active {
+					background: @am_weiss;
+					color: @am_schwarz;
+
+					strong,
+					a {
+						background: transparent;
+						color: @am_schwarz !important;
+						text-decoration: none;
+					}
+
+					a:focus,
+					a:hover,
+					a:active {
+						background: @am_weiss;
+						color: @am_schwarz !important;
+						text-decoration: none;
+					}
+				}
+			}
+
+			&:last-of-type {
+				border-right: 1px solid @am_hellgrau;
+			}
+		}
+	}
+}

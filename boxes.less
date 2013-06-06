@@ -1,0 +1,419 @@
+
+// Boxen, deren Abstände, Formen und Farben
+// Kann Spuren von Typografie enthalten
+
+@media all {
+
+	.box,
+//	.bloglinks,
+	.pullout,
+	#senf,
+	#tagcloud,
+	#leseliste {
+		.box();
+	}
+
+	aside.box {
+		padding: 10px;
+	}
+
+	.box :first-child {
+		margin-top: 0 !important;
+	}
+
+// TODO: Performance ??????????????
+	.box > *:first-child {
+		margin-top: 0 !important;
+		padding-top: 0;
+	}
+
+	.bloglinks {
+//		margin-top: .5em;
+		margin-bottom: 3em;
+		text-align: right;
+//		padding: 0 10px;
+		font-size: .9em;
+		border-bottom: 1px solid @am_kontur;
+
+		p {
+			margin: .5em 0;
+			padding: 0;
+		}
+	}
+
+	.blogback {
+		text-align: center;
+
+		a {
+			padding: 0 1%;
+		}
+	}
+
+// NUR auf der Folgeseite ausblenden, auf der Startseite sichtbar
+	.blogseite .weiter {
+		display: none;
+	}
+
+	.readmore {
+		clear: both;
+		border-top: 1px solid @am_kontur;
+		border-bottom: 1px solid @am_kontur;
+		position: relative;
+		top: 1em;
+		margin-bottom: 1em;
+		padding: 10px 0;
+	}
+
+// Pullquotes ---------------------------------------------------------------------------
+
+	#content {
+	
+		.pullout	{
+			float: right;
+			display: inline;
+			width: 300px;
+			margin: 1em 0 .5em 1em;
+//			padding: .5em !important;
+
+// links floatende Variante per Klasse umschalten:
+			&.left	{
+				float: left;
+//				height: 1%;
+			}
+
+//			ul,
+//			ol,
+//			dl,
+			img,
+			h3,
+			h4,
+			h5,
+			h6,
+			p	{
+				margin: 0 !important;
+				padding: .5em !important;
+			}
+
+			ul,
+			ol,
+			dl {
+				margin: 0 20px;
+			}
+
+// Zwischenüberschrift z.B. im Blogarchiv wäre auf der selben Ü-Ebene 
+// wie die Datumsdinger, soll aber anders dargestellt werden:
+			h2	{
+				font: @sansFontFamily;
+				float: none !important;
+				display: block;
+				border: 0 transparent solid;
+				background: transparent;
+				text-align: left;
+				margin: 0 0 0 .5em !important;
+			}
+		}
+	}
+
+// Inhaltsübersichten
+//	.pullout.toc	{
+//		margin: .7em 0 1em 1em;
+//	}
+
+// Infobox ------------------------------------------------------------------------------
+
+	.infobox {
+		margin: .8em 0 0 0 !important;
+		padding: 0;
+
+		.ym-gbox-info,
+		.ym-gbox-left,
+		.ym-gbox-right {
+			background: @am_flaeche;
+			padding-right: 0 !important;
+			border-radius: 5px;
+			border: 1px solid @am_kontur;
+		}
+
+//		.ym-gbox-left,
+//		.ym-gbox-right {
+//			margin-right: 20px;
+//		}
+
+		.infoboxhead {
+			font-size: 1.4em;
+			letter-spacing: normal;
+
+			background: @am_rot;
+// http://ie.microsoft.com/testdrive/graphics/cssgradientbackgroundmaker/
+// IE10 Preview
+			background-image: -ms-linear-gradient(top, @am_rot 0%, #b41114 100%);
+// Firefox
+			background-image: -moz-linear-gradient(top, @am_rot 0%, #b41114 100%);
+// Opera
+			background-image: -o-linear-gradient(top, @am_rot 0%, #b41114 100%);
+// Old Webkit (Safari/Chrome 10)
+			background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, @am_rot), color-stop(1, #b41114));
+// New Webkit (Chrome 11+)
+			background-image: -webkit-linear-gradient(top, @am_rot 0%, #b41114 100%);
+// W3C Spec, IE10 Release Preview
+			background-image: linear-gradient(to bottom, @am_rot 0%, #b41114 100%);
+			color: @am_weiss;
+
+			padding: 4px 20px;
+			margin: 0;
+
+			-webkit-border-top-left-radius: 5px;
+			-webkit-border-top-right-radius: 5px;
+			-moz-border-radius-topleft: 5px;
+			-moz-border-radius-topright: 5px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+
+		ul,
+		dl,
+		p {
+			padding: .5em 10px 1em 20px;
+			margin: 0;
+		}
+
+		dd {
+			margin-bottom: .5em;
+		}
+	}
+
+// Tagcloud -----------------------------------------------------------------------------
+
+	#tagcloud {
+	
+		ul {
+			padding: 0;
+			margin-top: 1em;
+			line-height: 1.6;
+		}
+
+		li {
+			display: inline;
+			font-size: .9em;
+			margin: .1em;
+		}
+
+		a {
+			padding: .1em;
+			overflow: hidden;
+//			color: @gray;
+			font-weight: normal;
+		}
+
+// Tagcloud mit verschachtelten strong (jemand 'ne bessere Idee?) 
+// vererbt sich automatisch und wird damit je nach Häufigkeit immer größer:
+
+		strong {
+			font-size: 1.1em;
+			font-weight: normal;
+//				color: 	#444;
+
+// 			strong {
+// 				color: @gray;
+// 
+// 				strong {
+// 					color: #666;
+// 				}
+// 			}
+		}
+	}
+
+// Boxen Verteilerseiten ----------------------------------------------------------------
+
+	.verteilerseite {
+
+		main .ym-gbox-left,
+		main .ym-gbox-right {
+			padding: 0 12px 0 0;
+			margin: 0 12px 0 0;
+			border-right: 1px dotted @am_kontur;
+		}
+
+		section {
+			padding: 10px 0 10px 20px;
+			margin: 0 0 1.5em 0;
+
+			&.fullwidth {
+				padding: 0;
+			}
+		}
+
+		article.indent {
+			padding: 0 0 1em 20px;
+			border-bottom: 1px solid @am_kontur;
+			margin-bottom: 1em;
+		}
+
+//		section.box {
+//			padding: 10px 20px 10px 20px;
+//		}
+	}
+
+// Boxen Contentseiten ------------------------------------------------------------------
+
+	.metaseite,
+	.blogseite,
+	.artikelseite {
+
+		#content {
+			margin: 1em 40px 0 10%;
+		}
+
+		aside {
+			font-size: 87.5%;
+
+			&.box {
+				margin: .5em 0 2em 0;
+			}
+
+			h6 {
+				font-size: 1.2em;
+				line-height: 1.2;
+//				margin: 0 !important;
+//				padding: 0 !important;
+			}
+
+			img + h6 {
+				margin-top: .5em;
+			}
+
+			ul {
+				margin-top: .5em;
+			}
+
+//			ul, ol, li,
+			dl, dd {
+				margin-left: 0;
+//				padding-left: 0;
+			}
+
+			dd, li {
+				margin-bottom: .5em;
+			}
+
+			a:link {
+				color: @am_dunkelgrau;
+			}
+		}
+	}
+
+// Vorlese-Dingens für Blogbeiträge und so ----------------------------------------------
+
+	div.vorleser {
+		float: right;
+		width: 220px;
+		.box;
+	}
+
+//	div.vorleser p,
+//	div.vorleser h4 {
+//		margin: 6px !important;
+//		color: #333;
+//	}
+
+	#startseite div.vorleser {
+		display: none;
+	}
+
+// Blogsenf -----------------------------------------------------------------------------
+
+//	#blog .blog #comments h3,
+//	#blog .blog h3#kommentar-eingeben	{
+//		font-size: 1.5em;
+//		font-weight: bold;
+//		height: 38px;
+//		margin: 0;
+//		padding: 2px 50px 1px 70px;
+//		background: #f5ca89 url("/img/chrome/navicons.png") left -450px no-repeat;
+///* border an Stelle von margin, weil letztere im IE6 kollabieren */
+//		border-top: 10px solid #fff;
+//		color: #555;
+//	}
+
+//	.blog #comments blockquote	{
+//		margin: 10px 10px 10px 70px;
+//		background: #f0dfd0; /*#f5e1ca*/
+//		background-image: none;
+//		padding: 0;
+//	}
+
+//	.blog #comments blockquote cite	{
+//		display: block;
+//		padding: .2em 0 18px 10px;
+//		font-weight: bold;
+//		font-style: normal;
+//		background: #e2cfba url("/img/chrome/border-cite.png") no-repeat 0 bottom;
+//
+//		img	{
+//			vertical-align: bottom;
+//		}
+//	}
+
+//	.blog #comments blockquote p	{
+//		margin: 0;
+//		padding: .5em 40px !important;
+//	}
+
+// Spezialstyles Podcast-Seiten ---------------------------------------------------------
+
+	.podcast-download	{
+		font-weight: bold;
+		margin: 0 0 1em;
+	}
+
+//	.podcast-download h3	{
+//		margin: 6px 6px 0 !important;
+//		padding: 0 !important;
+//		border-bottom: 2px #aaa solid;
+//		font-size: 1.2em !important;
+//	}
+
+//	.podcast-download p	{
+//		margin: 6px 6px 0 !important;
+//		text-align: right;
+//	}
+
+// TODO: temp styles zur Vereinheitlichung, bis die alle gefixt sind !!!!!!!!!!!!!!!!!!!!
+
+	div#senf,
+	div#tagcloud,
+	div#leseliste {
+		font-size: 87.5%;
+		margin: .5em 0 2em 0;
+
+		h1, h2, h3, h4, h5 {
+			font-size: 1.2em;
+			line-height: 1.2;
+//			margin: 10px 10px 0;
+			padding: 0 10px;
+		}
+
+		a:link,
+		a:visited {
+			color: @am_dunkelgrau;
+		}
+
+		ul {
+			margin: .5em 10px 10px;
+		}
+	}
+
+	.verteilerseite #tagcloud h2 {
+		font-size: 1.5em;
+		padding: 4px 10px;
+	}
+
+	div#senf ul,
+	div#leseliste ul {
+		padding-left: 10px;
+	}
+
+	#senf cite {
+		padding-right: .3em;
+	}
+}

@@ -1,0 +1,521 @@
+
+// global typography settings
+
+@media all {
+
+// Alle Schriftgrößen auf Standardgröße (16 Pixel) zurücksetzen 
+	html * {
+		font-size: 100%;
+	}
+
+// Überschriften ------------------------------------------------------------------------
+
+	h1 {
+		.font(Sans);
+//		font-size: 250%;
+//		line-height: .8571em;
+		letter-spacing: -1px;
+		color: @am_rot;
+// margin-top is set by the first value, margin-left and margin-right are set by the second, and margin-bottom is set by the third
+//		margin: .4286em 0 0;
+	}
+
+	h2 {
+		.font(Sans);
+		font-size: 175%;
+//		line-height: 1.2em;
+		letter-spacing: -1px;
+		color: @am_dunkelgrau;
+		margin: .6em 0 0 0;
+	}
+
+	h3 {
+		.font(SansBold);
+		font-size: 133.33%;
+//		line-height: .8571em;
+//		letter-spacing: -1px;
+		color: @am_dunkelgrau;
+//		color: @am_rot;
+		margin: .8571em 0 0 0;
+	}
+
+	img + h3 {
+		margin: .2em 0 0 0;
+	}
+
+	h4 {
+		.font(SansBold);
+		font-size: 116.67%;
+//		line-height: 1.125em;
+		color: @am_dunkelgrau;
+		margin: 1.125em 0 0 0;
+	}
+
+	h5 {
+		.font(SansBold);
+		font-size: 100%;
+//		line-height: 1.2857em;
+		color: @am_dunkelgrau;
+		margin: 1.2857em 0 0 0;
+	}
+
+	h6 {
+		.font(SansBold);
+		font-size: 100%;
+		line-height: 1.5em;
+		color: @am_dunkelgrau;
+		margin: 1.5em 0 0 0;
+	}
+
+	h2, h3, h4, h5, h6 {
+
+		a {
+			color: @am_dunkelgrau !important;
+			font-weight: normal !important;
+		}
+	}
+
+	.blogseite {
+	
+		#content h3 {
+			font-size: 175%;
+		}
+
+		#comments h3,
+		#commentform h3 {
+			font-size: 120%;
+		}
+	}
+
+	.blogseite #artikelmeta h1,
+	section.blog h2 * {
+		color: @am_orange !important;
+	
+	}
+
+// Listen -------------------------------------------------------------------------------- 
+
+	ul,
+	ol,
+	dl {
+		font-size: 1em;
+		line-height: 1.5em;
+		margin: .5em 0 0 .75em;
+	}
+
+	ul {
+		list-style-type: disc;
+
+		ul {
+			list-style-type: circle;
+			margin-top: 0;
+		}
+	}
+
+	ol {
+		list-style-type: decimal;
+		margin: .5em 0 0 .9em;
+
+		ol {
+			list-style-type: lower-latin;
+			margin-top: 0;
+		}
+
+		ul {
+			list-style-type: circle;
+			margin-top: 0;
+		}
+	}
+
+	li {
+		font-size: 1em;
+		line-height: 1.5em;
+		margin-left: .5em;
+	}
+
+	#content li {
+		margin-top: .5em;
+	}
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		margin: 0 0 0 .5em;
+	}
+
+	dl.interview {
+		margin-left: 0;
+		padding-left: 0;
+
+		dt,
+		dd {
+			margin: .5em 0 0 0;
+		}
+	}
+
+	ul.inline-list {
+		margin: 0 !important;
+
+		li	{
+			display: inline;
+			margin-left: 0 !important;
+			margin-right: .5em !important;
+			padding-left: 0;
+
+			img {
+				margin: 0 !important;
+			}
+		}
+	}
+
+	.ohne-aufzaehlung li {
+		list-style-image: none;
+		list-style-type: none;
+		text-indent: -1.3em;
+	}
+
+// Allgemeine Textauszeichnung ------------------------------------------ 
+
+	address {
+		speak: digits;
+	}
+
+	address,
+	p {
+		font-size: 1em;
+		line-height: 1.5em;
+		margin: .5em 0 0 0;
+	}
+
+	p + p {
+		margin: 1em 0 0 0;
+	}
+
+	strong,
+	b {
+		font-weight: bold;
+	}
+
+	em,
+	i,
+	dfn {
+		font-style: italic;
+	}
+
+	small {
+		font-size: 85.71%;
+	}
+
+	pre,
+	code,
+	kbd,
+	samp,
+	var {
+// Schriftgröße von monospaced Elemente in allen Browsern auf 16 Pixel setzen
+// @see: http: //webkit.org/blog/67/strange-medium/ 
+		font-size: 90%;
+		.font(MonoSemibold);
+		color: @am_dunkelblau;
+//		font-weight: bold;
+		speak: literal-punctuation;
+	}
+
+// Formatierungen für Codelistings:
+// IE6/7: white-space: pre; word-wrap: break-word; (steht in iehacks.css)
+// Gecko: white-space: -moz-pre-wrap;
+// Opera: white-space: -o-pre-wrap;
+// Safari: ?????
+// CSS3:  white-space: pre-wrap;
+
+	pre {
+		line-height: 1.5em;
+		margin: 1em 0 0 0;
+// Fallback für ganz doofe Browser
+		white-space: normal;
+// IE6/7: 
+		white-space: pre; 
+		word-wrap: break-word; // (sollte einslich in iehacks.css)
+// Gecko: 
+		white-space: -moz-pre-wrap;
+// Opera: 
+		white-space: -o-pre-wrap;
+// Safari: ?????
+// CSS3:  
+		white-space: pre-wrap;
+	}
+
+	abbr[title] {
+		border-bottom: 1px dotted @am_grau;
+		cursor: help;
+	}
+
+	sub,
+	sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+
+	sup {
+		top: -.5em;
+	}
+
+	sub {
+		bottom: -.25em;
+	}
+
+//	mark {
+//		background: @am_gelb;
+//		color: @am_schwarz;
+//	}
+
+	hr {
+		color: @am_weiss;
+		background: transparent;
+		margin: 0 10px .75em 0;
+		padding: 0 0 .75em 0;
+		border: 0;
+		border-bottom: 1px dotted @am_kontur;
+		clear: both;
+	}
+
+// Zitate -------------------------------------------------------------------------------
+// Leidiges Thema. Solange die Browserhersteller (Here's looking at you, Apple!) 
+// sich nicht einigen können geht's wohl nur auf die harte Tour:
+// http://www.paulchaplin.com/blog/css-reset-and-quirky-quotes
+
+	q {
+		quotes: "" "";
+		quotes: none;
+
+		&:before,
+		&:after {
+// Anführungszeichen weg (die CSS 2-Methode als Fallback, falls "none" nicht funktioniert)
+			content: "";
+// nochmal die CSS 2.1-Methode für alle Fälle
+			content: none;
+		}
+	}
+
+	blockquote,
+	q {
+		font-family: Constantia, Georgia, "Bitstream Vera Serif", "Palatino Linotype", serif;
+		font-style: italic;
+	}
+
+	blockquote {
+		margin: .5em 0;
+		color: @am_dunkelgrau;
+		.box();
+		padding: 0 10px .5em;
+
+		cite {
+			font-family: @sansFontFamily;
+			font-style: normal;
+		}
+	}
+
+	.blog blockquote,
+	#content blockquote	{
+		min-height: 22px;
+//		background: #f1efe9 url("/img/chrome/quote.png") no-repeat right 10px;
+		background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAQCAMAAADDGrRQAAAALVBMVEXhDCH%2F%2F%2F%2F98PHqWGfpSVnlKj33wsfjGy%2F74eP0pKvnOkv50dX2s7nwhZDylJ3DPweXAAAAfklEQVR42j2PWxLEIAgEZxDU9ZH7H3chEvsHqmGkBJcBo9KZCmALsfDiUhoCJew4Ix8cfvhY1OzGdTtc0rKWyCbPdXJDXJZZSmnpyP5eY7AB2HWdQYkEcqjkN53uZrxS75oSrKFKGAnVOs9PhoSyvAUNNenUVMT2oJBnTyudP339AnGmlUnFAAAAAElFTkSuQmCC") no-repeat 99% 10px;
+		padding-right: 30px;
+	}
+
+// Content Classes --------------------------------------------------------------
+
+	.spitzmarke {
+		color: @am_grau;
+//		color: @am_blau;
+		font-size: 1.8em;
+		margin: 0 auto 1em auto !important;
+	}
+
+// Datumsanzeiger Startseite
+
+	.blogdatum {
+		font-size: .9em;
+		color: @am_grau;
+		text-align: right;
+		margin: 0 0 -1em;
+		padding: 0;
+	}
+
+// Datumsanzeiger Blog
+
+	.blogseite h2	{
+		float: right;
+		display: inline;
+		width: auto;
+		font-family: Constantia, Georgia, "Bitstream Vera Serif", "Palatino Linotype", serif;
+		text-align: center;
+		margin: 0 0 10px 20px;
+		border: 1px solid @am_kontur;
+		background: @am_flaeche;
+	}
+
+	.jahr,
+	.monat {
+		font-weight: bold;
+	}
+
+	.tag,
+	.monat,
+	.jahr	{
+		display: block;
+		padding-left: 2px;
+		padding-right: 2px;
+		text-decoration: none;
+	}
+
+	abbr.monat[title] {
+		text-decoration: none !important;
+		border: 0 none;
+	}
+
+	.tag	{
+		font-size: 1.2em;
+		font-weight: normal;
+		margin: -.1em 1px 2px;
+		padding-top: 2px;
+		color: @am_dunkelgrau;
+		position: relative;
+		z-index: 10;
+	}
+
+	.monat	{
+		font-size: .9em;
+		margin: -.65em 1px .2em;
+		color: @am_grau;
+	}
+
+	.jahr	{
+		font-size: .8em;
+		margin: -.6em 1px 0;
+		color: @am_hellgrau;
+	}
+
+// Anzeige des Veröffentlichungsdatums, kann auch woanders verwendet werden
+	.published	{
+		font-family: Constantia, Georgia, "Bitstream Vera Serif", "Palatino Linotype", serif;
+		color: #666;
+		font-style:	italic;
+	}
+
+// Metadaten Artikel ----------------------------------------------------------
+
+	#artikelmeta {
+		.box();
+
+		font-size: 116.67%;
+		line-height: 1.125em;
+		margin: 0 0 1em 0;
+		padding: 10px 20px 10px 20px;
+
+		h1 {
+			font-size: 150%;
+			line-height: 1.2em;
+		}
+
+		h2 {
+			font-size: 130%;
+			line-height: 1.2em;
+		}
+
+		#abstract {
+			padding-bottom: .5em;
+		}
+
+		#artikeltags,
+		#datum {
+			font-size: 82.5%;
+			color: @am_grau;
+			line-height: 1.2;
+			text-align: right;
+			margin: 0;
+			padding : 0;
+		}
+
+		a {
+			color: @am_grau;
+		}
+	}
+
+// Spezialstyles für Seiten mit Leichter Sprache ----------------------------------------
+// (body mit class="leichte-sprache")
+
+	.leichte-sprache #content	{
+		font-size: 150%;
+	}
+
+	.leichte-sprache #content p,
+	.leichte-sprache #content ul li	{
+		line-height: 1.6;
+		font-weight: bold;
+	}
+
+// Spezialstyles Events-Kalender --------------------------------------------------------
+
+	.vevent	{
+		margin-top: 1em;
+
+		abbr {
+			text-decoration: none;
+			border: 0;
+		}
+
+		.description,
+		.datum	{
+			margin: .5em 0;
+		}
+
+		.datum	{
+			margin-bottom: 2em;
+//			color: @am_dunkelgrau;
+		}
+	}
+
+	h2.cal-month {
+		color: @am_grau;
+	}
+
+	.vevent + h2.cal-month {
+		margin: 1em 0 1em !important;
+	}
+
+// Suchseite ----------------------------------------------------------------------------
+
+	#artikelmeta {
+	
+		#searchform	{
+			margin-left: 40px;
+		}
+
+		button	{
+			margin-left: 10px;
+		}
+	}
+
+	.paginierung	{
+		word-spacing: .3em;
+
+		a {
+			padding: .1em;
+		}
+	}
+
+//	.paginierung a:focus,
+//	.paginierung a:hover	{
+//		outline: 1px solid #999;
+//	}
+
+	#content .hit-std h3,
+	#content .hit-sub h3	{
+		margin-top: 1.5em;
+		padding-left: 0 !important;
+	}
+}

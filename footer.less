@@ -1,0 +1,89 @@
+
+@media screen {
+
+	footer {
+		background: @am_kontur;
+// http://ie.microsoft.com/testdrive/graphics/cssgradientbackgroundmaker/
+// IE10 Preview
+		background-image: -ms-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+// Firefox
+		background-image: -moz-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+// Opera
+		background-image: -o-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+// Old Webkit (Safari/Chrome 10)
+		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, @am_weiss), color-stop(1, @am_kontur));
+// New Webkit (Chrome 11+)
+		background-image: -webkit-linear-gradient(top, @am_weiss 0%, @am_kontur 100%);
+// W3C Spec, IE10 Release Preview
+		background-image: linear-gradient(to bottom, @am_weiss 0%, @am_kontur 100%);
+		color: @am_dunkelgrau;
+		margin-top: 1.5em;
+
+// TODO: Weissdergeier warum da unten so eine Lücke entsteht … ??????????????
+		margin-bottom: -1.2em !important;
+		border-top: 1px solid @am_kontur;
+//		padding-top: 1em;
+
+//		.ym-wrapper {
+//			outline: 1px solid red;
+//			max-width: 77em;
+//		}
+
+		.nochnwrapper {
+			padding: 0 10px 0 40px !important;
+//			outline: 1px solid blue;
+		}
+
+// 		.ym-g15,
+//		.ym-g50,
+// 		.ym-g33 .ym-g50.ym-gr {
+//			border-right: 1px solid @am_hellgrau;
+//		}
+
+		h6 {
+			.font(SansBold);
+			color: @am_dunkelgrau;
+			font-size: 1em;
+			margin: 1em 0 .2em 0;
+//			border-bottom: 1px solid @am_kontur;
+		}
+
+		p {
+			margin: .5em 0;
+		}
+
+		ul,
+		li {
+			list-style-type: none;
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+		ul {
+			margin: 0;
+		}
+
+		li {
+			font-size: 85.71%;
+		}
+
+		a:link,
+		a:visited {
+			color: @am_dunkelgrau;
+			text-decoration: none;
+			font-weight: normal;
+		}
+
+		a:focus,
+		a:hover,
+		a:active {
+			color: @am_schwarz;
+			text-decoration: underline;
+		}
+
+		img.amlogo {
+			background: @am_weiss;
+			padding: 4px 2px
+		}
+	}
+}

@@ -1,0 +1,500 @@
+
+// screen-specific layout stuff and some such
+
+@media screen {
+
+// Layout Module Configuration ----------------------------------------------------------
+
+	.ym-wrapper {
+		max-width: 80em;
+		margin: 0 auto;
+//		outline: 1px solid red;
+	}
+
+	.ym-wbox {
+		padding-left: 20px;
+		padding-right: 20px;
+		position: relative;
+	}
+
+// fallback for missing media queries support in dumb browsers
+
+// TODO: Performance ??????????????
+
+//	body > header.banner,
+	body > .banner,
+	body > nav,
+	body > main,
+	body > footer {
+		min-width: 760px;
+	}
+
+// Header styles ------------------------------------------------------------------------
+
+	.metanav {
+		margin-bottom: 1em;
+	}
+
+	a.am-backlink {
+		display: inline-block;
+		color: @am_dunkelgrau;
+		font-size: .9em;
+		line-height: 1.5;
+		font-weight: normal;
+		padding: .5em 0 0 10px;
+
+		&:before {
+			content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAHCAYAAAAvZezQAAAAU0lEQVR42jXNoQ2AMBCF4QsDMAGShDFYhUFIUB2gDkeQTbDVVdXdBtv%2Bl9yJT7yXvDt5YlAzThwaJnzoaFrcFgp2sfBjg2iRrXyx%2BsHqM%2F%2ByIOEaZQk%2BMveqSQ4AAAAASUVORK5CYII%3D");
+			padding-right: .4em;
+		}
+	}
+
+	a.efa-homelink {
+	
+		&:link,
+		&:visited,
+		&:hover,
+		&:visited:hover,
+		&:active {
+			font-weight: normal;
+			text-decoration: none;
+		}
+	}
+
+// Startseite & Verteilerseiten h1, sonstige p, weil h1 eine andere 
+	h1.efa,
+	p.efa {
+		font-family: @sansFontFamily;
+		line-height: 0.8571em;
+		color: @am_rot;
+		position: relative;
+		font-size: 42px;
+		margin: .4286em 0 .4286em 20px;
+		letter-spacing: -2px;
+		word-spacing: -4px;
+// funnily, Safari leaves some random space around arial rounded
+		text-indent: -3px;
+	}
+
+	.claim {
+		font-size: 1em;
+		margin: -1em 0 1em 20px;
+		color: @am_grau;
+	}
+
+	.logobox {
+		text-align: right;
+		padding-bottom: 20px;
+	}
+
+// Breadcrumbs --------------------------------------------------------------------------
+
+	.breadcrumbs {
+		font-size: .9em;
+		color: @am_dunkelgrau;
+		padding: 0 0 1.5em 20px;
+
+		a:link,
+		a:visited {
+			color: @am_dunkelgrau;
+			text-decoration: none;
+		}
+
+		a:focus,
+		a:hover,
+		a:active {
+			color: @linkColorHover;
+			text-decoration: underline;
+		}
+	}
+
+// Images --------------------------------------------------------------------------------
+
+	img {
+		border: 0 solid;
+	}
+
+//	.verteilerseite main img,
+	main img,
+	.flexible {
+		.flexible();
+	}
+
+	p img {
+		margin-top: 0;
+	}
+
+	.verteilerseite main img,
+	.bordered {
+//		margin-top: 1.5em;
+		border: 2px solid @am_weiss;
+		-webkit-box-shadow: 0 0 2px @am_hellgrau;
+		-moz-box-shadow: 0 0 2px @am_hellgrau;
+		box-shadow: 0 0 2px @am_hellgrau;
+	}
+
+	.float-left,
+	.imgleft {
+		float: left;
+		display: inline;
+		margin: .5em 1em 0 0;
+	}
+
+	.float-right,
+	.imgbox,
+	.imgright {
+		float: right;
+		display: inline;
+		margin: .5em 0 0 1em;
+	}
+	
+	.imgbox {
+		width: 300px;
+	}
+
+//	figure,
+	.imgbox,
+	.imgright {
+	
+		img {
+			.flexible();
+			margin-top: 0;
+		}
+
+		figcaption,
+		.caption {
+			font-size: .9em;
+			line-height: 1.4;
+			width: 100%;
+			margin: .5em 0;
+			color: @am_dunkelgrau;
+//			max-width: 250px;
+		}
+	}
+}
+
+// Media Queries ------------------------------------------------------------------------
+
+// reset fallback values in modern browsers
+@media screen and ( min-width: 0px ) {
+
+// TODO: Performance ??????????????
+//	body > header.banner,
+	body > .banner,
+	body > nav,
+	body > main,
+	body > footer {
+		min-width: 0;
+	}
+}
+
+//@media screen and ( max-width: 760px ) {
+//@media screen and ( max-width: 769px ) {
+@media screen and ( max-width: 48.063em ) {
+
+//	main aside .ym-gbox-right {
+//		border: 0 none;
+//	}
+
+// TODO: Performance ??????????????
+//
+// „The sad truth about CSS3 selectors is that they really shouldn’t be used at all if you
+// care about page performance. Decorating your markup with classes and ids and matching
+// purely on those while avoiding all uses of sibling, descendant and child selectors will
+// actually make a page perform significantly better in all browsers.“
+// http://www.shauninman.com/archive/2008/05/05/css_qualified_selectors#comment_3942
+// http://css-tricks.com/efficiently-rendering-css/
+
+// Linearisation for Grid- and Column-Module, based on CSS class .ym-lin1
+	.ym-lin1,
+	.ym-lin1 > [class*="ym-g"],
+	.ym-lin1 > [class*="ym-col"],
+// zus. Boxen, die ab dieser Größe linearisieren sollen
+	.pullout,
+	.pullout.left,
+	.imgbox {
+		display: block;
+		float: none;
+		padding: 0;
+		margin: 0;
+		width: 100% !important;
+	}
+
+	.formularseite {
+
+		#content {
+			margin: 1em 0 0 0 !important;
+		}
+		fieldset {
+			padding: 0 20px 20px !important ;
+		}
+	}
+
+	.ym-lin1 > [class*="ym-g"] > [class*="ym-gbox"],
+	.ym-lin1 > [class*="ym-col"] > [class*="ym-cbox"] {
+// optional for containing floats
+		overflow: hidden;
+		padding: 0;
+		margin: 0;
+	}
+
+	.ym-searchform {
+		display: block;
+		float: none;
+		width: auto;
+		text-align: left;
+	}
+
+	.ym-searchform input[type="search"] {
+		width: 40%;
+	}
+
+	.logo {
+		width: 180px;
+		height: 70px;
+		float: none;
+		padding-left: 18px;
+		padding-bottom: .5em;
+	}
+
+	main .box .ym-g50.ym-gr {
+		border-top: 1px solid @am_kontur;
+		margin-top: 1em;
+		padding-top: 1em;
+	}
+
+	main .box .ym-g50.ym-gl .ym-g50.ym-gr,
+	main .box .ym-g50.ym-gr .ym-g50.ym-gr {
+		border-top: 0 none;
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	.verteilerseite .blog .ym-gbox-info {
+		margin-right: 20px;
+	}
+
+	.verteilerseite main section .ym-gbox-right {
+		padding: 0 0 0 0;
+		margin: 0 20px 0 0 !important;
+		border-right: 0 none;
+	}
+}
+
+// @media screen and ( max-width: 480px) {
+// @media screen and ( max-width: 520px) {
+@media screen and ( max-width: 32.500em) {
+
+// Linearisation for Grid- and Column-Module, based on CSS class .ym-lin2
+	.ym-lin2,
+	.ym-lin2 > [class*="ym-g"],
+	.ym-lin2 > [class*="ym-col"],
+
+// zus. Boxen, die ab dieser Größe linearisieren sollen
+	.ym-grid.thumbs > [class*="ym-g"],
+	.imgleft,
+	.imgright {
+		display: block;
+		float: none;
+		padding: 0;
+		margin: 0;
+		width: 100% !important;
+	}
+
+	#content {
+		margin: .5em 10px 0 20px !important;
+		max-width: 100% !important;
+	}
+
+	#commentform,
+	#comments {
+		margin: .5em 0 0 0 !important;
+		max-width: 100% !important;
+	}
+
+	.blogseite,
+	.formularseite {
+
+		section#content {
+			margin: 1em 0 0 0 !important;
+			max-width: 100% !important;
+		}
+
+		fieldset {
+			padding: 0 20px 20px !important ;
+		}
+	}
+
+	.ym-lin2 > [class*="ym-g"] > [class*="ym-gbox"],
+	.ym-lin2 > [class*="ym-col"] > [class*="ym-cbox"] {
+// optional for containing floats
+		overflow: hidden;
+		padding: 0;
+		margin: 0;
+	}
+
+	.ym-gbox-left,
+	.ym-gbox-right {
+		border-right: 0 none !important;
+	}
+
+	section .ym-gbox-right {
+		padding-top: 1em !important;
+		border-top: 1px dotted @am_kontur;
+	}
+
+	section .ym-gbox-left {
+		padding-bottom: 1em !important;
+	}
+
+	.ym-wbox {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	header.banner {
+
+		.ym-searchform {
+			display: block;
+			padding: .5em 0 0 20px;
+
+			.ym-searchfield {
+				display: inline-block;
+				float: none;
+				position: static;
+				table-layout: auto;
+				width: 80%;
+
+				&:focus {
+					width: 80%;
+				}
+			}
+
+			.ym-searchbutton {
+				position: relative;
+				top: 6px;
+				left: -4px;
+			}
+		}
+
+// Startseite & Verteilerseiten h1, sonstige p, weil h1 eine andere 
+		h1.efa,
+		p.efa {
+			font-size: 2em;
+			line-height: 1em;
+			font-weight: normal !important;
+		}
+
+		p.claim {
+			line-height: 1.2em;
+			padding-top: .5em;
+			margin-bottom: .5em;
+			font-weight: normal !important;
+		}
+
+		.logobox {
+//			text-align: left !important;
+		}
+
+		.logo {
+			width: 135px;
+			height: 52px;
+			float: none;
+			padding-left: 18px;
+			padding-bottom: .5em;
+		}
+	}
+
+	nav .ym-hlist {
+
+		ul {
+			padding-left: 0;
+
+			li {
+				a, strong {padding-left: 30px;}
+				&.active {
+					border-bottom: 1px solid @am_kontur;
+				}
+			}
+		}
+
+		ul,
+		li {
+			display: block;
+			float: none;
+			width: 100%;
+			text-align: left;
+		}
+	}
+
+	main {
+
+		#abstract {
+			font-size: .9em;
+			line-height: 1.3;
+		}
+
+		section {
+			max-width: 95% !important;
+		}
+
+		article.indent {
+			max-width: 95% !important;
+			border-right: 0 none;
+		}
+
+		section.fullwidth {
+			width: 99.9%;
+			max-width: 99.9% !important;
+		}
+
+		.spitzmarke {
+			font-size: 1.2em;
+			letter-spacing: 0;
+			border-bottom: 1px solid @am_kontur;
+		}
+	}
+
+	.verteilerseite main section .ym-gbox-left,
+	.verteilerseite main section .ym-gbox-right {
+		padding: 0 0 0 0;
+		margin: 0 20px 0 0 !important;
+		border-right: 0 none;
+	}
+
+	#tagcloud li {
+		line-height: 1.7;
+
+		a {
+// Klickfläche vergrößern
+			padding: .2em .5em .3em 0 !important;
+//			outline: 1px solid red;
+			-webkit-hyphens: none;
+			hyphens: none;
+		}
+	}
+
+	footer {
+	
+		.ym-gl .ym-gbox-left {
+			padding-bottom: .5em !important;
+			border-bottom: 1px solid @am_kontur !important;
+		}
+
+		li {
+			line-height: 2;
+		}
+
+// Klickfläche vergrößern
+		li a {
+			padding: .3em .3em .3em 0;
+//			border: 1px solid red;
+		}
+	}
+}
+
+@media only screen and (max-width: 400px) {
+     @-ms-viewport {
+          width: 320px;
+	}
+}

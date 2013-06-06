@@ -1,0 +1,339 @@
+
+@media screen {
+
+// search form --------------------------------------------------------------------------
+
+	header .suche {
+		position: relative;
+		text-align: right;
+	}
+
+	.ym-searchform {
+		display: inline;
+
+		label {
+			.offleft();
+		}
+
+		.ym-searchfield {
+			position: absolute;
+			top: -1px;
+			right: 24px;
+			height: 23px;
+			width: 175px;
+//			line-height: 1em;
+			margin: 0 !important;
+			padding: 0 .25em;
+			outline: none;
+			border: solid 1px @am_rot;
+// DAMN WEBKIT MOBILE SEEMS TO IGNORE SINGLE VALUES AND APPLIES THEM TO ALL 4 CORNERS !11
+			-webkit-border-top-left-radius: 0px;
+			-moz-border-radius-topleft: 0px;
+			border-top-left-radius: 0px;
+
+			-webkit-border-top-right-radius: 0px;
+			-moz-border-radius-topright: 0px;
+			border-top-right-radius: 0px;
+
+			-webkit-border-bottom-right-radius: 0px;
+			-moz-border-radius-bottomright: 0px;
+			border-bottom-right-radius: 0px;
+
+			-webkit-border-bottom-left-radius: 3px;
+			-moz-border-radius-bottomleft: 3px;
+			border-bottom-left-radius: 3px;
+
+			-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+			-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+			box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+
+			&:focus {
+				width: 15em;
+				-webkit-transition:width 0.3s ease-in-out;
+				-moz-transition:width 0.3s ease-in-out;
+				-o-transition:width 0.3s ease-in-out;
+				transition:width 0.3s ease-in-out;
+			}
+		}
+
+		.ym-searchbutton {
+			cursor: pointer;
+// NO IDEA WHY THIS IS NEEDED FOR MOBILE WEBKIT OVER AND OVER AGAIN
+			-webkit-border-radius: 0px;
+			-moz-border-radius: 0px;
+			border-radius: 0px;
+		}
+	}
+
+// Such-Formular ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// Einheitliches Erscheinungsbild für input[type="search"] Elemente erzwingen 
+	input[type="search"] {
+		-webkit-appearance: textfield;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+	}
+
+	input[type="search"]::-webkit-search-decoration {
+		-webkit-appearance: none;
+	}
+
+// Kontakt- und Blogsenf-Formulare ––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// Rahmen für fieldset und img Elemente löschen 
+	fieldset {
+		position: static;
+		.box();
+		margin: 0.75em 0 0.75em 0;
+		padding: 0 2em 1.5em;
+	}
+
+	.ym-form,
+	.ym-form fieldset {
+		overflow: hidden;
+	}
+
+	#kontaktformular {
+		margin-top: -1.3em;
+	}
+
+	#commentform {
+		padding-top: 1em;
+	}
+
+	#kommentarformular {
+		margin-top: .5em;
+	}
+
+	.ym-form {
+		color: @am_dunkelgrau;
+		background: @am_weiss;
+		padding: 0;
+
+		legend {
+			.offleft();
+		}
+
+// styling containing DIV elements
+		div {
+			position: relative;
+
+			&.ym-fbox-text,
+			&.ym-fbox-button {
+				padding: .3em 0;
+			}
+		}
+
+		label,
+		.ym-message {
+			position: relative;
+// important for Safari
+			display: block;
+		}
+
+		.ym-message + label {
+			margin-top: -1em;
+		}
+
+		label {
+			cursor: pointer;
+			line-height: 2.5em;
+			padding-left: 5px;
+		}
+
+		input,
+		textarea {
+			cursor: text;
+		}
+
+// small adjustments for Internet Explorer - all versions
+		textarea {
+			overflow: auto;
+		}
+
+// Versteckte Felder wirklich verstecken (sonst ggf. häßliche Lücken im Firefox)
+		input[type=hidden] {
+			display: none !important;
+		}
+
+// Gestaltung der kapselnden DIV-Elemente
+	
+		.ym-fbox-button:before,
+		.ym-fbox-text:before {
+			content: "";
+			display: table;
+		}
+	
+		.ym-fbox-text:after,
+		.ym-fbox-button:after {
+			clear: both;
+			content: ".";
+			display: block;
+			font-size: 0;
+			height: 0;
+			visibility: hidden;
+		}
+
+// form validation highlight colors
+		input:valid,
+		textarea:valid {
+			background: @am_weiss;
+		}
+
+		input:invalid,
+		textarea:invalid {
+			background: #fdd;
+			border: 1px solid @am_dunkelrot !important;
+		}
+
+// error messages
+		.ym-error {
+
+			label {
+				color: @am_dunkelrot;
+				font-weight: normal;
+			}
+
+			input,
+			textarea {
+				border: 1px solid @am_dunkelrot !important;
+			}
+
+			input:hover,
+			input:focus,
+			textarea:hover,
+			textarea:focus {
+				border: 1px solid @am_dunkelrot !important;
+			}
+
+			.ym-message {
+				color:  @am_dunkelrot;
+				font-weight: bold;
+				margin-top: 0;
+			}
+		}
+
+// Effekt zur Hervorhebung von Formularfeldern bei :hover oder :focus
+		.ym-fbox-text textarea:hover,
+		.ym-fbox-text input:hover {
+			border: 1px solid #888;
+			background: @am_weiss;
+		}
+
+		input[type=text]:focus,
+		input[type=text]:active,
+		input[type=email]:focus,
+		input[type=email]:active,
+		.ym-fbox-text textarea:focus,
+		.ym-fbox-text textarea:active {
+			background: @am_weiss;
+			-webkit-outline: 0;
+			-moz-outline: 0;
+			-o-outline: 0;
+			outline: none;
+//			outline-offset: 3px;
+// #004436 @am_dunkelgruen
+			-webkit-box-shadow: rgba(0, 68, 54, 0.5) 0 0 4px;
+			-moz-box-shadow: rgba(0, 68, 54, 0.5) 0 0 4px;
+			-o-box-shadow: rgba(0, 68, 54, 0.5) 0 0 4px;
+			box-shadow: rgba(0, 68, 54, 0.5) 0 0 4px;
+		}
+
+// Buttons Rote Variante ----------------------------------------------------------------
+
+// Fallback
+		.ym-fbox-button input {
+			display: inline;
+			overflow: visible;
+// Fixes IE7 auto-padding bug
+			width: auto;
+		}
+
+		input[type="submit"] {
+			display: inline-block;
+			white-space: nowrap;
+			background: @am_rot;
+			background: -moz-linear-gradient(top, #e31519 0%, #b41114 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e31519), color-stop(100%,#b41114));
+			background: -webkit-linear-gradient(top, #e31519 0%,#b41114 100%);
+			background: -o-linear-gradient(top, #e31519 0%,#b41114 100%);
+			background: -ms-linear-gradient(top, #e31519 0%,#b41114 100%);
+			background: linear-gradient(to bottom, #e31519 0%,#b41114 100%);
+			border: 0px solid @am_rot;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			color: @am_weiss !important;
+			cursor: pointer;
+			font: normal 1em/2em Arial, Helvetica, sans-serif;
+			margin: 1.5em 0.75em 0 0;
+			padding: 0 1.5em;
+// removes extra side spacing in IE
+			overflow: visible;
+			text-decoration: none !important;
+//			text-shadow: 1px 1px 0 rgba(0,0,0,.8);
+			font: normal 1em/2em @sansBoldFontFamily;
+
+			&:hover,
+			&:focus {
+				background: @am_rot !important;
+				outline: 0;
+			}
+
+			&:active {
+				background: -moz-linear-gradient(top, #b41114 0%, #e31519 100%) !important;
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b41114), color-stop(100%,#e31519)) !important;
+				background: -webkit-linear-gradient(top, #b41114 0%,#e31519 100%) !important;
+				background: -o-linear-gradient(top, #b41114 0%,#e31519 100%) !important;
+				background: -ms-linear-gradient(top, #b41114 0%,#e31519 100%) !important;
+				background: linear-gradient(to bottom, #b41114 0%,#e31519 100%) !important;
+				box-shadow: 2px 2px 3px rgba(0,0,0,.1) inset !important;
+				position: relative;
+				top: 1px;
+			}
+		}
+	}
+
+// Gestaltung der einzelnen Formularelemente mit annähend gleicher Breite
+	.ym-full .ym-fbox-text {
+
+		input,
+		textarea {
+			width: 94.2%;
+			margin-top: -2px;
+			margin-right: -3px;
+			padding: 0.25em 0.3em;
+			line-height: 1.3em;
+			-webkit-box-shadow: inset 0 0 4px #eee;
+			-moz-box-shadow: inset 0 0 4px #eee;
+			box-shadow: inset 0 0 4px #eee;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			border: 1px solid #cfc8c2;
+		}
+	}
+}
+
+@media screen and (min-width: 0px) { 
+
+// switching to CSS3 box model "border-box" for flexible forms
+	.ym-form {
+
+		input,
+		textarea {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-ms-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+	}
+
+	.ym-full .ym-fbox-text {
+
+		input,
+		textarea {
+			width: 100%;
+		}
+	}
+}

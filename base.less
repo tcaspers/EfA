@@ -1,0 +1,344 @@
+
+@media all {
+
+// Globales Reset von paddings und margins für alle HTML-Elemente auf die harte Tour. 
+// Ist mittlerweile ok, d.h. alte Lehren wie 
+// https://developer.mozilla.org/en/Writing_Efficient_CSS/#Universal_rules 
+// gelten nicht mehr in reiner Form, weil:
+// „CSS Selector Performance has changed! (For the better)“
+// http://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/
+
+	* {
+		margin: 0;
+		padding: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+
+// apply a natural box layout model to all elements 
+// http://paulirish.com/2012/box-sizing-border-box-ftw/
+// TODO: generell auf box-sizing: border-box umschalten ????
+// 		-webkit-box-sizing: border-box;
+// 		box-sizing: border-box;
+	}
+
+// Sanftere Methode
+
+// Unnötiges raus, weil Elemente zurzeit nicht verwendet werden
+// abbr, acronym, address, applet, aside, b, big, blockquote, canvas, caption, cite, code, dd, del, details, dfn, dl, dt, em, embed, fieldset, form, h4, h5, h6, hgroup, i, iframe, ins, kbd, label, legend, mark, nav, object, output, q, ruby, samp, small, summary, table, tbody, td, tfoot, th, thead, time, tr, tt, u, var,
+
+// 	a, article, audio, body, div, figcaption, figure, footer, h1, h2, h3, header, html, img, li, ol, p, pre, section, span, strong, sub, sup, ul, video {
+// 		margin: 0;
+// 		padding: 0;
+// 		font-size: 100%;
+// 		font: inherit;
+// 		vertical-align: baseline;
+// 	// 	-webkit-box-sizing: border-box;
+// 	// 	box-sizing: border-box;
+// 	}
+
+// Korrektur: Das Zurücksetzen der Abstände verursacht zu kleine Selectboxen. 
+// Zurzeit werden auf der ganzen Site keine verwendet, daher abgeschaltet
+// 	option {
+// 		padding-left: .4em;
+// 	}
+// 
+// 	select {
+// 		padding: 1px;
+// 	}
+
+	body {
+// force vertical scrollbar
+//		overflow-y: scroll;
+// Default-Font
+		.font(Base);
+// Beseitigung von Rundungsfehler beim Skalieren von Schriftgrößen in älteren Opera Versionen 
+		font-size: 100%;
+// Vorgabe der Standardfarben und Textausrichtung 
+		background: @bodyBackground;
+		color: @textColor;
+		text-align: left;
+
+// Bessere Schriftglättung
+// iOS doesn’t offer sub-pixel anti-aliasing. Says @gruber. And @gruber is always right.
+		-webkit-font-smoothing: subpixel-antialiased;
+		font-smoothing: subpixel-antialiased;
+// Subpixel-Glättung bei inversem Text (hell auf dunkel) unbedingt wieder ausschalten,
+// s. http://files.christophzillgens.com/webkit-font-smoothing.html
+//		-webkit-font-smoothing: antialiased;
+//		font-smoothing: antialiased;
+
+// Keming & Ligaturen - nur nach intensiven Tests je nach Font einsetzen 
+		text-rendering: optimizeLegibility;
+
+// Automatische Schriftvergrößerung in mobilen Webkit-Browsern vermeiden 
+		-webkit-text-size-adjust: 100%;
+	}
+
+// Sil|ben|tren|nung
+// q.v. http://www.w3.org/TR/2011/WD-css3-text-20110901/#hyphenation
+	nav,
+	main,
+	footer {
+		-ms-hyphens: auto;
+		-moz-hyphens: auto;
+		-webkit-hyphens: auto;
+// U+00AD = conditional soft hyphen
+// U+2010 = explicit hyphen
+		-webkit-hyphenate-character: '\2010';
+		-webkit-hyphenate-limit-before: 3;
+		-webkit-hyphenate-limit-after: 1;
+
+// the minimum size of a hyphenated word is left to the UA (which means it may vary 
+// depending on the language, the length of the line, or other factors), but the minimum 
+// number of characters before and after the hyphenation point is set to 3
+		-webkit-hyphenate-limit-chars: auto 3;
+		-webkit-hyphenate-limit-lines: no-limit; // no-limit | integer
+// not sure if this is already supported
+		-webkit-hyphenate-limit-last: page; // none | always | column | page | spread
+		hyphens: auto;
+	}
+
+// Vermeidung sichtbarer Outline-Rahmen in Webkit-Browsern 
+	div:target,
+	h1:target,
+	h2:target,
+	h3:target,
+	h4:target,
+	h5:target,
+	h6:target {
+		outline: 0 none;
+	}
+
+// Neue HTML5-Elemente für alte Browser auf Block Level umbiegen 
+	article,
+	aside,
+	details,
+	figcaption,
+	figure,
+	footer,
+	header,
+//	hgroup went the way of the dodo
+	main,
+	nav,
+	section {
+		display: block;
+	}
+
+// HTML5 - Standard Eigenschaften für Media-Elemente 
+	audio,
+//	canvas,
+	video {
+		display: inline-block;
+	}
+
+// audio ohne Kontrollelemente sollten nicht angezeigt werden 
+//	audio:not([controls]) {
+//		display: none;
+//	}
+
+	audio {
+		width: 60%;
+//		background: #95B9C7;
+	}
+
+// HTML5 - Eigenschaften für das hidden-Attribut in älteren IEs und FF nachrüsten 
+	[hidden] {
+		display: none;
+	}
+
+// Clearfix-Methode zum Aufheben der Float-Umgebungen 
+	.ym-clearfix:before {
+		content: "";
+		display: table;
+	}
+
+	.ym-clearfix:after {
+		clear: both;
+		content: ".";
+		display: block;
+		font-size: 0;
+		height: 0;
+		visibility: hidden;
+	}
+
+// Alternative Methoden zum Einschließen von Float-Umgebungen 
+// 	.ym-contain-dt {
+// 		display: table;
+// 		width: 100%;
+// 		overflow: visible;
+// 	}
+// 
+// 	.ym-contain-oh {
+// 		overflow: hidden;
+// 		width: 100%;
+// 		display: block;
+// 	}
+// 
+// 	.ym-contain-fl {
+// 		float: left;
+// 		width: 100%;
+// 	}
+
+// Klassen für unsichtbare Elemente im Basislayout 
+// 	.ym-print,
+// 	.ym-hideme,
+	.ym-skip {
+		.offleft();
+	}
+}
+
+@media screen {
+
+// Column Module ------------------------------------------------------------------------
+// default column config:
+// |-------------------------------|
+// | col1 | col3 | col2 |
+// | 20% | flexible | 20% |
+// |-------------------------------|
+//
+//
+//	.ym-column {
+//		display: table;
+//		width: 100%;
+//	}
+//
+//	.ym-col1 {
+//		float: left;
+//		width: 20%;
+//	}
+//
+//	.ym-col2 {
+//		float: right;
+//		width: 20%;
+//	}
+//
+//	.ym-col3 {
+//		width: auto;
+//		margin: 0 20%;
+//	}
+//
+//	.ym-cbox {
+//		padding: 0 10px;
+//	}
+//
+//	.ym-cbox-left {
+//		padding: 0 10px 0 0;
+//	}
+//
+//	.ym-cbox-right {
+//		padding: 0 0 0 10px;
+//	} 
+//
+//// IE-Clearing: Benötigt nur der Internet Explorer und über iehacks.css zugeschaltet 
+//	.ym-ie-clearing {
+//		display: none;
+//	}
+
+// Grid Module ----------------------------------------------------------------------
+
+	.ym-grid {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+		list-style-type: none;
+		padding-left: 0;
+		padding-right: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.ym-gl {
+		float: left;
+		margin: 0;
+	}
+
+	.ym-gr {
+		float: right;
+		margin: 0 0 0 -5px;
+	}
+
+	.ym-g15 {
+		width: 15%;
+	}
+
+	.ym-g20 {
+		width: 20%;
+	}
+
+	.ym-g25 {
+		width: 25%;
+	}
+
+	.ym-g30 {
+		width: 30%;
+	}
+
+	.ym-g33 {
+		width: 33.333%;
+	}
+
+	.ym-g38 {
+		width: 38.2%;
+	}
+
+	.ym-g40 {
+		width: 40%;
+	}
+
+	.ym-g50 {
+		width: 50%;
+	}
+
+	.ym-g60 {
+		width: 60%;
+	}
+
+	.ym-g62 {
+		width: 61.8%;
+	}
+
+	.ym-g66 {
+		width: 66.666%;
+	}
+
+	.ym-g75 {
+		width: 75%;
+	}
+
+	.ym-g80 {
+		width: 80%;
+	}
+
+	.ym-g100 {
+		width: 100%;
+	}
+
+//	.ym-gbox {
+//		padding: 0 10px;
+//	}
+//
+//	.ym-gbox-left {
+//		padding: 0 20px 0 0;
+//	}
+//
+//	.ym-gbox-right {
+//		padding: 0 0 0 20px;
+//	}
+
+	.ym-equalize {
+		overflow: hidden;
+	}
+
+	.ym-equalize > [class*="ym-g"] {
+		display: table-cell;
+		float: none;
+		margin: 0;
+		vertical-align: top;
+	}
+
+	.ym-equalize > [class*="ym-g"] > [class*="ym-gbox"] {
+		padding-bottom: 10000px;
+		margin-bottom: -10000px;
+	}
+}

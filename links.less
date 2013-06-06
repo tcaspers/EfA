@@ -1,0 +1,280 @@
+
+@media screen {
+
+// Allgemeine Links ---------------------------------------------------------------------
+
+	a:link,
+	a:visited {
+		color: @linkColor;
+		background: transparent;
+		text-decoration: none;
+		font-weight: bold;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+
+		a {
+			font-weight: inherit;
+			color: inherit;
+		}
+	}
+
+	a:focus,
+	a:active {
+		background: @am_weiss;
+		-webkit-outline: 0;
+		-moz-outline: 0;
+		-o-outline: 0;
+		outline: none;
+//		outline-offset: 3px;
+// #004436 @am_dunkelgruen
+		-webkit-box-shadow: rgba(0, 68, 54, 0.5) 0 0 4px;
+		-moz-box-shadow: rgba(0, 68, 54, 0.5) 0 0 4px;
+		-o-box-shadow: rgba(0, 68, 54, 0.5) 0 0 4px;
+		box-shadow: rgba(0, 68, 54, 0.5) 0 0 4px;
+		-webkit-tap-highlight-color: @am_rot;
+	}
+
+// Maximaler Kontrast für Tab-Fokus
+	a:hover,
+	a:focus {
+		color: @linkColorHover;
+		text-decoration: underline;
+	}
+
+/* komisch, wenn man die beiden folgenden zusammen schreibt, 
+   dann tut's das weder in Safari noch in Frickelfox: */
+	::selection	{
+		background: @gray;
+		color: @am_weiss;
+	}
+
+	::-moz-selection	{
+		background: @gray;
+		color: @am_weiss;
+	}
+
+// skip links ---------------------------------------------------------------------------
+
+	.ym-skip:focus,
+	.ym-skip:active {
+		position: static;
+		top: 0;
+		left: 0;
+	}
+
+	.ym-skiplinks {
+		.offleft();
+		z-index: 1000;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+
+		.ym-skip:focus,
+		.ym-skip:active {
+			left: 9999px;
+			outline: 0 none;
+			position: absolute;
+			width: 100%;
+			height: auto;
+			color: @am_weiss;
+			background: @am_schwarz;
+			opacity: .75;
+			padding: 3px 0;
+			text-align: center;
+			text-decoration: none;
+		}
+	}
+
+// eat your own dogfood: http://www.einfach-fuer-alle.de/artikel/tastaturfokus/
+//	*:target {
+//		color: #fff !important;
+//		background: #8fa6b8 !important;/*f5ca89*/
+//	}
+
+// Spezielle Links –––––––––––––––––––––––––––––––––––––––––––––––––––––––––-------------
+
+	.ym-next:before {
+		content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAALCAYAAACzkJeoAAAAWklEQVR42nXMQQ3AIBBEUSRw4dBbJSABCZVQKTisBA4IQAKdJv0J2SyHvyF5E0JPx6mKCrbvDDXVo6LFSQxWvL0B6A5AqmZQgKwG8L%2FjDjLfNg9AF8BLVWDtBW3Gdb2yFR%2B8AAAAAElFTkSuQmCC");
+		font-weight: normal;
+		padding-right: .2em;
+	}
+
+	.bloglinks {
+
+		a:link,
+		a:visited {
+			color: @am_grau;
+		}
+	}
+
+// 	.blogroll th a:visited,
+// 	.blogroll th a:visited:hover {
+// 		background: transparent url("/img/chrome/checked.png") no-repeat left top;
+// 	}
+
+//	#abstract a:link,
+//	#abstract a:visited,
+	aside.box a:link,
+	aside.box a:visited {
+		border-bottom: 1px solid @grayLighter;
+		color: @am_dunkelgrau;
+	}
+
+// TODO: temp styles zur Vereinheitlichung, bis die alle gefixt sind !!!!!!!!!!!!!!!!!!!!
+
+	#senf,
+	#tagcloud,
+	#leseliste {
+		a:link,
+		a:visited {
+			border-bottom: 1px solid #ddd;
+			color: @am_dunkelgrau;
+		}
+	}
+
+// Link-Dekorationen je nach Link-Typ ---------------------------------------------------
+//
+// // Icons sind alles sprites aus smallicons.png mit jeweils 30px Abstand
+//	a[rel="external"]	{
+//		background: transparent url("/img/chrome/smallicons.png") no-repeat left -240px;
+//		padding-left: 16px;
+//	}
+//
+// // beim drübermausen 30px weiterschieben zur dunkleren Version:
+//	a[rel="external"]:focus,
+//	a[rel="external"]:hover	{
+//		background-position: left -270px;
+//	}
+//
+//	.blogback p a,
+//	a[rel="next"]	{
+//		background: transparent url("/img/chrome/smallicons.png") no-repeat left -300px;
+//		padding-left: 16px;
+//	}
+//
+//	.blogback p a:focus,
+//	.blogback p a:hover,
+//
+//	a[rel="next"]:focus,
+//	a[rel="next"]:hover	{
+//		background-position: left -330px;
+//	}
+//
+//	a[rel="previous"]	{
+//		background: transparent url("/img/chrome/smallicons.png") no-repeat left -360px;
+//		padding-left: 16px;
+//	}
+//
+//	a[rel="previous"]:focus,
+//	a[rel="previous"]:hover	{
+//		background-position: left -390px;
+//	}
+//
+// // Ausnahme: die Paginierung im Blog unten
+//
+//	.blogback p a[rel="previous"]	{
+//		background: transparent url("/img/chrome/smallicons.png") no-repeat left -360px;
+//		padding-left: 16px;
+//		float: left;
+//		line-height: 1.4;
+//	}
+//
+//	.blogback p a[rel="previous"]:focus,
+//	.blogback p a[rel="previous"]:hover	{
+//		background-position: left -390px;
+//	}
+//
+// Icons für verschiedene MIME-Types:
+
+	a[type="audio/mpeg"]:before,
+	a[type="audio/x-m4a"]:before,
+	a.link-audio:before	{
+ //		content: url("/img/chrome/audio.png");
+		content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAQBAMAAAAPAfkrAAAAMFBMVEX%2F%2F%2F%2FhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCEDVRUbAAAAD3RSTlMAESIzRFVmd4iZqrvM3e5GKvWZAAAAaElEQVQImWNgYGCQ%2BcAAB8z3gZwdUI7dfyBnfwGYzfEeyJkh9xDEzuj%2FD%2BTsT%2FsB4vwHgg8z9C68gXPOW37eD%2BfEt33pR3DakTgoyk7oQwyAGH0%2B7AfC0hMQS6HOOV%2BA5NAVMGfDvQAA%2BF1QFRvov58AAAAASUVORK5CYII%3D");
+	}
+
+//	a[type="application/zip"]	{
+// //		background: transparent url("/img/chrome/icon_zip.gif") no-repeat left top;
+//		background: transparent url("data:image/gif;base64,R0lGODlhDAAQALMPAGhoaJOTk9jY2MnJyba2to2Njfb29unp6aKiovLy8oGBgfr6%2Bv%2F%2F%2F66urlRUVP%2F%2F%2FyH5BAEAAA8ALAAAAAAMABAAAARykIypnAvn6baSQYhCENnTGEcSAtORncensGMjcN4qDKOCLwhBQOA6IAiMRELATKWODMOSQJQaGsjFQbCoGhZYRmdg8DLCBtRA4DEwRotAwRAwFOpvZKI%2BLxwCC3ABCQt9eHB3dIoMZwMBCgoFkpAKAQMRADs%3D") no-repeat left top;
+//		padding-left: 18px;
+//	}
+//
+// // RSS-Links
+//
+//	#navbox li#feedurls	{
+//		color: #333;
+//		background: #beccd7;
+//		padding: 4px 2px 2px 10px;
+//		margin-top: -1px;
+//		border-bottom: 0 solid #fff;
+//	}
+//
+//	#navbox li#feedurls a	{
+//		display: inline;
+//		padding: 0 6px 0 16px;
+//		background: transparent url("/img/chrome/rss.gif") no-repeat left top;
+//	}
+//
+// // Animation beim drübermausen
+//
+//	#navbox li#feedurls a:hover,
+//	#navbox li#feedurls a:focus	{
+//		background-position: left -50px;
+//	}
+//
+//	#leseliste a:visited,
+//	#leseliste a:visited:hover	{
+//		padding-left: 16px;
+//		background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAANBAMAAABr8kJMAAAAMFBMVEX%2F%2F%2F%2BpqamQkJDY2NiKiorm5uaamprU1NTg4OC6urqrq6ugoKDMzMxmZmaurq7p6emy7ZqOAAAAAXRSTlMAQObYZgAAAFZJREFUCNdjYAAB5qlgiqHNk0EQBFwyGOT%2F%2F%2F%2F%2F85IBg3zw%2F%2F9H7jAwiG6q%2F6ziAKSXqIf5CTAwyEc5bdkKor8uceoH0f%2Bjtv8H01%2FjITQQAGmweQIMAPnuH91eG2QiAAAAAElFTkSuQmCC") no-repeat left top;
+//	}
+//
+//-------------------------------------------------------------------------
+// * Diverse Link-Dekorationen
+// * @section		content-links
+//
+//
+//	a.perma	{
+//		background: transparent url("/img/chrome/smallicons.png") no-repeat left -180px;
+//		padding-left: 18px;
+//	}
+//
+//	a.perma:focus,
+//	a.perma:hover	{
+//		background-position: left -210px;
+//	}
+
+	a.kommentare:before	{
+ //		content: url("/img/chrome/kommentare.png");
+		content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAQCAYAAAD9L%2BQYAAAAtklEQVR42tWUUQ3DIBCGEbCHSaBOKqESkICEOqiESkACEiphmQIksMuSa%2F4Qyr9b9rJLvjf%2Bj4NwOK3nbZqFLNQPOITgOlVrVU5x0KCRJNyv5NoxBnZhHbC3G4zkCRYGR%2Bud8cIBuaUrx44bB90AspnJozMWXhGTz1%2FI1%2F%2BUw1wUKjeKF3wMVG4QR6FA1jN5gCe2CbkHSjHH5Nn4DRQQ0wlteQy6j3oVTO7JUU2FchzlhKP8C%2FkLhhyx2%2Fm%2BH%2BkAAAAASUVORK5CYII%3D");
+	}
+
+//	.tags	{
+//		background: transparent url("/img/chrome/smallicons.png") no-repeat left -120px;
+//		padding-left: 18px;
+//	}
+
+// Zweimal (1x als Klasse, 1x als ID), weil es Seiten gibt, die nur ein kanonisches  
+// Datum haben (Artikel) und Seiten mit mehreren Datummen (z.B. Pressemitteilungen)
+	p#datum:before,
+	p.datum:before	{
+ //		content: url("/img/chrome/datum.png");
+		content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAQCAMAAAAlM38UAAAAMFBMVEX%2F%2F%2F%2FhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCHhDCEDVRUbAAAAEHRSTlMAESIzRFVmd4iZqrvM3e7%2FdpUBFQAAAHtJREFUeNply0sOwzAIAFEwNMbxZ%2B5%2F23jhpnUyC4SeQGYFlzHEKfIreaM4eKF5%2BurB1rF40AetQm2MzlgMaqGSs2iYws1zmIq4zWXjD6ENzp0DIhMnab92ImUpTxZC5KDImwunvjlDrfbgcIuZ%2FrPJnd3c2eqLrW%2B6Xi8zzAjC3cjVnAAAAABJRU5ErkJggg%3D%3D");
+	}
+
+//	.datum	{
+//		color: #555;
+//		font-family: Constantia, Georgia, "Bitstream Vera Serif", "Palatino Linotype", serif;
+//	}
+//
+//
+//	.datum	{
+// //		background: transparent url("/img/chrome/date.gif") no-repeat left center;
+//		background: transparent url("data:image/gif;base64,R0lGODlhEQAMALMIAPz8%2FIuLi%2Bfn59nZ2ZmZmaampsnJyba2tv%2F%2F%2FwAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAgALAAAAAARAAwAAARUUAxzzDhn1oE6CkRRECEpEoH3DZcgVEBLqIFgFC4G3EJB2zVAaFfzeYIAgEC5TM6OzcLhRTg4f0mREvnsIG87QlKIjVkNhnH3Y2G53%2BtCYE6vg1QRADs%3D") no-repeat left center;
+//		padding-left: 17px;
+//		font-family: Constantia, Georgia, "Bitstream Vera Serif", "Palatino Linotype", serif;
+//	}
+//
+
+}

@@ -1,0 +1,320 @@
+
+// Codelistings
+
+@media screen {
+
+//	Alte Codelistings mit OL zu Fuß reingemacht -----------------------------------------
+
+	ol.listing	{
+		color: @grayLight;
+		background: @am_kontur;
+		margin: 1em 0;
+		padding: 0 0 0 3em !important;
+		list-style: decimal outside;
+		border-top: 1px solid @am_kontur;
+		font-size: .9em;
+
+		li	{
+			background: @am_weiss;
+			margin: 0 0 1px !important;
+			margin-bottom: 1px !important;
+			padding-left: .5em;
+			list-style: decimal-leading-zero outside;
+			white-space: -moz-pre-wrap;
+			white-space: -o-pre-wrap;
+			white-space: pre-wrap;
+		}
+// Codezeilen abwechsend gestreift
+//			&:nth-child(odd)	{
+//				background: #f6f9fe;
+//			}
+	}
+
+// Verschiedene Hintergrundbilder zur Unterscheidung von HTML, CSS & JS
+
+//	.htmlCode :first-child	{
+//		background: url("/img/chrome/code-html.png") @am_kontur no-repeat right top;
+//	}
+//
+//	.cssCode :first-child	{
+//		background: url("/img/chrome/code-css.png") @am_kontur no-repeat right top;
+//	}
+//
+//	.scriptCode :first-child	{
+//		background: url("/img/chrome/code-script.png");
+//	}
+
+// Syntax Colouring
+
+	.htmltag	{
+		color: #4d5871;
+	}
+
+	.sel	{
+		color: #6c3937;
+	}
+
+	.val	{
+		color: #485b42;
+	}
+
+	.imp	{
+		color: red;
+	}
+
+	.com	{
+		color: #777;
+	}
+
+// Snippet Base Styles für jquery.snippet.js --------------------------------------------
+
+	pre.sh_sourceCode ol	{
+		color: @grayLight;
+		background: @am_kontur;
+		margin: 1em 0;
+		padding: 0 0 0 3em !important;
+		list-style: decimal outside;
+		border-top: 1px solid @am_kontur;
+
+		li	{
+			background: @am_weiss;
+			margin: 0 0 1px !important;
+//			margin-bottom: 1px !important;
+			padding: .2em .5em;
+			list-style: decimal-leading-zero outside;
+//			white-space: -moz-pre-wrap;
+//			white-space: -o-pre-wrap;
+//			white-space: pre-wrap;
+
+// Codezeilen abwechsend gestreift
+			&:nth-child(odd)	{
+				background: #f6f9fe;
+			}
+		}
+	}
+
+	.snippet-reveal {
+		text-decoration: underline;
+
+		pre.sh_sourceCode {
+			padding: .5em 1em;
+			text-align: right;
+		}
+	}
+
+//	.snippet-container {
+//		background: @am_weiss;
+//		background: rgba(255,255,255,.5);
+// TODO: keine Ahnung warum das nötig ist bzw. wo da der Abstand herkommt
+//		margin: -1em 0 !important;
+//		padding: 0 !important;
+//		outline: 1px solid red;
+//	}
+
+	.snippet-wrap {
+		position: relative;
+//		margin: 1.5em 0 0 0;
+//		outline: 1px solid red;
+
+// alles was nicht als Tag, Selektor, Attribut, Wert wtc. gekennzeichnet ist
+//		pre li 
+		code {
+			color: @am_grau;
+		}
+
+		.snippet-menu,
+		.snippet-hide {
+			position: absolute;
+			top: 10px;
+			right: 15px;
+			font-size: .9em;
+			z-index: 1;
+			background: transparent;
+			background: rgba(0,0,0,.1);
+			-webkit-border-radius: .2em;
+			-moz-border-radius: .2em;
+			border-radius: .2em;
+		}
+
+		.snippet-hide {
+			top: auto;
+			bottom: 10px;
+		}
+
+		.snippet-menu pre,
+		.snippet-hide pre {
+			background: transparent;
+			margin: 0;
+			padding: 0;
+		}
+
+		.snippet-menu a,
+		.snippet-hide a {
+			padding: 2px 5px;
+			text-decoration: underline;
+			position: relative;
+			zoom: 1;
+		}
+
+		.snippet-menu a:hover,
+		.snippet-hide a:hover {
+			background: rgba(0,0,0,.5);
+			color: @am_weiss;
+		}
+
+		.snippet-wrap {
+		
+			pre.sh_sourceCode {
+//				font-size: 12px;
+//				padding: 0;
+				line-height: 1.2em;
+//				margin: 0;
+				overflow: auto;
+				position: relative;
+//				border-radius: 5px;
+//				white-space: pre;
+//				word-wrap: normal;
+//				-moz-box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+//				-webkit-box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+//				box-shadow: 0px 1px 2px rgba(0,0,0,1);
+			}
+
+			pre.snippet-textonly {
+				padding: 2em;
+			}
+
+			li {
+				&.box-top {
+					border-width: 1px 1px 0 !important;
+				}
+
+				&.box-bot {
+					border-width: 0 1px 1px !important;
+				}
+
+				&.box-mid {
+					border-width: 0 1px !important;
+				}
+			}
+		}
+
+		.snippet-num {
+			margin: 1em 0;
+			padding-left: 3em;
+
+			li {
+				padding-left: .5em;
+//				line-height: 1.2em;
+				list-style: decimal-leading-zero outside none;
+
+				&.box {
+					border: 1px solid;
+					list-style-position: inside;
+					margin-left: -3em;
+					padding-left: 6px;
+				}
+				
+				.box-sp {
+					width: 18px;
+					display: inline-block;
+				}
+			}
+		}
+
+		.snippet-no-num {
+			list-style: none;
+			padding: .6em 1em;
+			margin: 0;
+
+			li {
+				line-height: 1.2em;
+				list-style: none;
+				padding-left: 0;
+
+				&.box {
+					padding: 0 6px;
+					margin-left: -6px;
+					border: 1px solid;
+				}
+
+				.box-sp {
+					display: none;
+				}
+			}
+		}
+	}
+
+// syntax coloring -------------------------------------------------------
+
+	.sh_bright {
+		background: none;
+		padding: 0;
+		margin: 0;
+		border: 0 none;
+	}
+
+	.sh_sourceCode {
+		background: transparent;
+		color: @am_hellgrau;
+		.font(MonoLight);
+	}
+
+	.sh_keyword {
+		color: @am_dunkelblau;
+//		.font(MonoSemibold);
+	}
+
+	.sh_type {
+		color: #7F6F4F;
+	}
+
+	.sh_string {
+		color: #B60028;
+	}
+
+//	.sh_regexp,
+//	.sh_specialchar,
+//	.sh_ip,
+//	.sh_name,
+//	.sh_oldfile,
+//	.sh_newfile,
+	.sh_url,
+	.sh_value {
+		color: @am_dunkelblau;
+	}
+
+	.sh_comment {
+		color: @grayLight;
+	}
+
+	.sh_number {
+		color: #32ba06;
+	}
+
+	.sh_preproc {
+		color: #5374b0;
+	}
+
+	.sh_symbol,
+	.sh_cbracket {
+		color: @am_dunkelgrau;
+	}
+
+	.sh_function {
+		color: #d11ced;
+	}
+
+// 	.sh_date,
+// 	.sh_time,
+// 	.sh_file,
+// 	.sh_difflines,
+// 	.sh_property {
+// 		color: @am_dunkelrot;
+// //		.font(MonoSemibold);
+// 	}
+
+//	.sh_variable,
+	.sh_selector {
+		color: #00f;
+	}
+}

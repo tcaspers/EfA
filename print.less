@@ -1,0 +1,147 @@
+// variables.less Variablen für LESS
+@import 'variables.less';
+
+// Internetausdrucker
+
+// unnötig, weil im link rel
+//@media print {
+
+	* {
+		color:	@black !important;
+		background: @white !important;
+		text-align: left;
+	}
+
+// Wechsel der der Schriftgrößen-Maßheinheit zu [pt]
+// Probleme mit [px] in Geckos vermeiden
+
+	body {
+		font-size: 10pt;
+		padding: 0 5px;
+	}
+
+// Für den Druck nicht benötigte Container des Layouts abschalten
+
+	.ym-skiplinks,
+	.am-backlink,
+	.ym-searchform,
+	nav,
+	form,
+	.breadcrumbs,
+	.readmore,
+	.kommentare,
+	#artikeltags,
+	.thumbs img,
+	.startseite main img,
+	.verteilerseite main img,
+	.infobox br,
+//	.ym-next,
+	#tagcloud,
+	footer {
+		display: none;
+	}
+
+// Float Clearing für die Subtemplates.
+// Verwendet display: table, um Darstellungsprobleme im FF & IE zu vermeiden
+	.ym-grid > .ym-gl,
+	.ym-grid > .ym-gr {
+		overflow: visible;
+		display: table;
+	}
+
+	.ym-gbox,
+	.ym-gbox-left,
+	.ym-gbox-right {
+		overflow: visible;
+		display: table;
+		width: 100%;
+	}
+
+// Einrückungen hinfort
+	.metaseite #content,
+	.blogseite #content,
+	.artikelseite #content {
+		margin: 1em 0 0 20px;
+	}
+
+// Vermeidung von Seitenumbrüchen direkt nach einer Überschrift
+
+	h1, h2, h3, h4, h5, h6 {
+		page-break-after: avoid;
+		page-break-inside: avoid;
+	}
+
+// Abschalten evtl. vorhandener Hintergrundgrafiken zur Linkkennzeichnung
+
+	h1.efa,
+	p.efa {
+		font-family: @sansFontFamily;
+		line-height: 0.8571em;
+		color: @am_rot !important;
+		position: relative;
+		font-size: 42px;
+		margin: 0 0 0 20px;
+		letter-spacing: -2px;
+		word-spacing: -4px;
+// funnily, Safari leaves some random space around arial rounded
+//		text-indent: -3px;
+	}
+
+	p.claim {
+		margin: 0 0 2em 20px;
+	}
+
+	.logobox {
+		width: 180px;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	img.logo {
+		width: 180px;
+		height: auto;
+	}
+
+	a,
+	a img,
+	a:link,
+	a:visited {
+		text-decoration: none;
+		color: @black;
+		padding-left: 0;
+		background-image: none;
+		border: 0 none;
+	}
+
+	abbr,
+	abbr[title]	{
+		text-decoration: none !important;
+		border: 0 none;
+	}
+
+	main img {
+		max-width: 20%;
+		height: auto;
+		float: right;
+		clear: both;
+	}
+
+// Ausrichtungen
+
+	p.blogdatum {
+		text-align: left;
+	}
+
+//// .ym-print-Klasse sichtbar schalten 
+//	.ym-print {
+//		position: static;
+//		left: 0;
+//	}
+//
+//// Allgemeine CSS Klasse, um beliebige Elemente in der Druckausgabe auszublenden 
+//	.ym-noprint {
+//		display: none !important;
+//	}
+
+//} 
